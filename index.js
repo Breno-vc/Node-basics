@@ -1,23 +1,33 @@
 const express = require("express");
-
 const server = express();
 
-server.get("/helloWorld", (req, res) => {
-  const { name } = req.query; // query params
+server.use(express.json());
 
-  return res.json({
-    title: "Hello World",
-    message: `First NodeJS project, welcome ${name}!`,
-  });
+let customers = [
+  {
+    id: 1,
+    name: "Dev Samurai",
+    site: "https://devsamurai.com.br",
+  },
+  { id: 2, name: "Google", site: "https://google.com" },
+  { id: 3, name: "uol", site: "https://uol.com.br" },
+];
+
+server.get("/customers", (_, res) => {
+  return res.json(customers);
 });
 
-server.get("/helloWorld/:name", (req, res) => {
-  const { name } = req.params; // route params
+server.get("/customers/:id", (req, res) => {
+  const { id } = req.params;
+  const customer = customers.find((customer) => customer.id === Number(id));
+  const status = customer ? 200 : 404;
 
-  return res.json({
-    title: "Hello World",
-    message: `First NodeJS project, welcome ${name}!`,
-  });
+  if (status === 200) {
+    return res.json(customer);
+  }
+  if (status === 404) {
+    return res.status(status).json({ error: "Customer not found" });
+  }
 });
 
 server.listen(3000);
