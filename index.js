@@ -45,4 +45,24 @@ server.post("/customers", (req, res) => {
   return res.status(201).json(newCustomer);
 });
 
+// MAIN DIFFERENCES BETWEEN PUT AND PATCH ARE THAT PUT IS COMPLETELY REPLACING THE RESOURCE AND PATCH IS PARTIALLY UPDATING THE RESOURCE
+server.patch("/customers/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const { name, site } = req.body;
+  const index = customers.findIndex((item) => item.id === id);
+  const status = index >= 0 ? 200 : 404;
+
+  console.log(name, site);
+
+  if (index >= 0) {
+    customers[index] = {
+      id,
+      name: name ? name : customers[index].name,
+      site: site ? site : customers[index].site,
+    };
+  }
+
+  return res.status(status).json(customers[index]);
+});
+
 server.listen(3000);
