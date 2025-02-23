@@ -65,4 +65,18 @@ server.patch("/customers/:id", (req, res) => {
   return res.status(status).json(customers[index]);
 });
 
+server.delete("/customers/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = customers.findIndex((item) => item.id === id);
+
+  const status = index >= 0 ? 200 : 404;
+
+  if (index >= 0) {
+    customers.splice(index, 1);
+  }
+  return res.status(status).json({
+    message: status === 200 ? "Customer deleted" : "Customer not found",
+  });
+});
+
 server.listen(3000);
