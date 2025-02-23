@@ -1,9 +1,12 @@
 const { Router } = require("express");
 
 const routes = new Router();
+const customers = require("./app/controllers/CustomersControllers");
 
-routes.get("/", (req, res) => {
-  return res.json({ message: "Hello" });
-});
+routes.get("/customers", customers.index);
+routes.get("customers/:id", customers.show);
+routes.post("/customers", customers.create);
+routes.patch("/customers/:id", customers.update);
+routes.delete("/customers/:id", customers.destroy);
 
 module.exports = routes;
