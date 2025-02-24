@@ -11,6 +11,9 @@ class Customer extends Model {
       { sequelize },
     );
   }
+  static associate(models) {
+    this.hasMany(models.Contact);
+  }
 }
 
 export default Customer;
