@@ -61,3 +61,7 @@ Follow the instructions below to set up and run the project locally.
     **Nodemon**(v3.1.9) (for development)
 
     **Yarn** (v1.22.22) (package manager)
+
+### DB relations image:
+
+![Relations on DB](./public/db-relations.svg)
