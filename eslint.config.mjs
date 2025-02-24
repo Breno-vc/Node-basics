@@ -12,7 +12,19 @@ export default [
     rules: {
       'prettier/prettier': 'error',
       quotes: ['error', 'single'],
-      'class-methods-use-this': ['error', { exceptMethods: ['constructor'] }],
+      'class-methods-use-this': [
+        'error',
+        {
+          exceptMethods: [
+            'constructor',
+            'index',
+            'show',
+            'update',
+            'create',
+            'destroy',
+          ],
+        },
+      ],
       'no-param-reassign': 'off',
       camelcase: 'off',
       'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],

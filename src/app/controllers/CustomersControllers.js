@@ -9,11 +9,11 @@ let customers = [
 ];
 class CustomersControllers {
   //LIST
-  static index(_, res) {
+  index(_, res) {
     return res.json(customers);
   }
   // get one customer
-  static show(req, res) {
+  show(req, res) {
     const { id } = req.params;
     const customer = customers.find((customer) => customer.id === Number(id));
     const status = customer ? 200 : 404;
@@ -26,14 +26,14 @@ class CustomersControllers {
     }
   }
   //create a customer
-  static create(req, res) {
+  create(req, res) {
     const { name, site } = req.body;
     const id = customers[customers.length - 1].id + 1;
     customers.push({ id, name, site });
     return res.status(201).json({ id, name, site });
   }
   // update a customer
-  static update(req, res) {
+  update(req, res) {
     const { id } = req.params;
     const { name, site } = req.body;
     const index = customers.findIndex((item) => item.id === Number(id));
@@ -48,7 +48,7 @@ class CustomersControllers {
     return res.status(status).json(customers[index]);
   }
   //delete a customer
-  static destroy(req, res) {
+  destroy(req, res) {
     const { id } = req.params;
     const index = customers.findIndex((item) => item.id === Number(id));
     const status = index >= 0 ? 200 : 404;
