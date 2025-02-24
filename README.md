@@ -37,6 +37,12 @@ Follow the instructions below to set up and run the project locally.
      npm install
     ```
 
+    then you go with:
+
+    ```bash
+    yarn add eslint prettier eslint-plugin-prettier eslint-config-prettier -d
+    ```
+
 4.  Running the Project
     To run the project in development mode, use the command:
 
