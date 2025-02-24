@@ -62,6 +62,6 @@ Follow the instructions below to set up and run the project locally.
 
     **Yarn** (v1.22.22) (package manager)
 
-### DB relations image:
+### DER relations image:
 
 ![Relations on DB](./public/db-relations.svg)
