@@ -6,7 +6,7 @@ class Customer extends Model {
       {
         customer_name: Sequelize.STRING,
         customer_email: Sequelize.STRING,
-        // customer_status: Sequelize.ENUM('ACTIVE', 'ARCHIVED'),
+        customer_status: Sequelize.ENUM('ACTIVE', 'ARCHIVED'),
       },
       { sequelize },
     );
