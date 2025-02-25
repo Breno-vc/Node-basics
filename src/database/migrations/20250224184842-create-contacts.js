@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 export async function up(queryInterface, Sequelize) {
-  await queryInterface.createTable('contact', {
+  await queryInterface.createTable('contacts', {
     id: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -33,5 +33,5 @@ export async function up(queryInterface, Sequelize) {
   });
 }
 export async function down(queryInterface) {
-  await queryInterface.dropTable('contact');
+  await queryInterface.dropTable('contacts');
 }
