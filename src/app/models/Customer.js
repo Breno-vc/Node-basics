@@ -4,9 +4,14 @@ class Customer extends Model {
   static init(sequelize) {
     super.init(
       {
+        customer_id: {
+          type: Sequelize.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+        },
         customer_name: Sequelize.STRING,
         customer_email: Sequelize.STRING,
-        customer_status: Sequelize.ENUM('ACTIVE', 'ARCHIVED'),
+        status: Sequelize.ENUM('ACTIVE', 'ARCHIVED'),
       },
       { sequelize },
     );
