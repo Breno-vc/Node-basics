@@ -6,7 +6,7 @@ module.exports = {
   password: 'dockerpass',
   database: 'mydatabase-nodejs',
   define: {
-    timestamp: true, // add createdAt and updatedAt columns to db
+    timestamps: true, // add createdAt and updatedAt columns to db
     underscored: true, // changes camelCase (and others) to snake_case
   },
 };

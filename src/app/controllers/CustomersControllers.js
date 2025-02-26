@@ -15,6 +15,7 @@ class CustomersControllers {
     const data = await Customer.findAll({
       limit: 1000,
     });
+    // const data = customers;
     return res.json(data);
   }
   // get one customer
